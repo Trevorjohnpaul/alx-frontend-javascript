@@ -56,11 +56,13 @@ console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee("$500"));
 
-function isDirector(employee: Director | Teacher): employee is Director {
+
+
+export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
-function executeWork(employee: Director | Teacher): string {
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
@@ -68,5 +70,6 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
-console.log(executeWork(createEmployee(200)));
-console.log(executeWork(createEmployee(1000)));
+
+console.log(executeWork(createEmployee(200)));   
+console.log(executeWork(createEmployee(1000)));  
