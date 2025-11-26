@@ -36,15 +36,16 @@ console.log(director1);
 
 
 
+// Interface for the function
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  (teacher: { firstName: string; lastName: string }): string;
 }
 
-
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName} ${lastName}`;
+//implemented function
+const printTeacher: printTeacherFunction = (teacher) => {
+  return `${teacher.firstName[0]}. ${teacher.lastName}`;
 };
 
-
-console.log(printTeacher("John", "Doe")); 
-console.log(printTeacher("Alice", "Smith")); 
+// Example of the use of the function
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: J. Doe
+console.log(printTeacher({ firstName: "Alice", lastName: "Smith" })); // Output: A. Smith
