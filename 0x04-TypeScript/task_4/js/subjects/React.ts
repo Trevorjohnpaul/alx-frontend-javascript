@@ -1,24 +1,16 @@
-// React.ts
-namespace Subjects {
-  export interface Teacher {
-    experienceTeachingReact?: number;
+// task_4/js/subjects/React.ts
+import { Subject } from "./Subject";
+import { Subjects } from "./Teacher";
+
+export class React extends Subject {
+  getRequirements(): string {
+    return "Here is the list of requirements for React";
   }
 
-  export class React extends Subject {
-    getRequirements(): string {
-      return "Here is the list of requirements for React";
+  getAvailableTeacher(): string {
+    if (!this.teacher?.experienceTeachingReact) {
+      return "No available teacher";
     }
-
-    getAvailableTeacher(): string {
-      if (
-        this.teacher &&
-        this.teacher.experienceTeachingReact &&
-        this.teacher.experienceTeachingReact > 0
-      ) {
-        return `Available Teacher: ${this.teacher.firstName}`;
-      } else {
-        return "No available teacher";
-      }
-    }
+    return `Available Teacher: ${this.teacher.firstName}`;
   }
 }
