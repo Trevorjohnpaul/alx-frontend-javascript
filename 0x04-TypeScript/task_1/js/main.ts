@@ -18,8 +18,6 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-
-
 interface Directors extends Teacher {
   numberOfReports: number;
 }
@@ -34,18 +32,21 @@ const director1: Directors = {
 
 console.log(director1);
 
-
-
 // Interface for the function
 interface printTeacherFunction {
   (teacher: { firstName: string; lastName: string }): string;
 }
 
-//implemented function
-const printTeacher: printTeacherFunction = (teacher) => {
-  return `${teacher.firstName[0]}. ${teacher.lastName}`;
-};
+// Function declaration with  parameters
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
+  return `${firstName[0]}. ${lastName}`;
+}
 
-// Example of the use of the function
-console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: J. Doe
-console.log(printTeacher({ firstName: "Alice", lastName: "Smith" })); // Output: A. Smith
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
+console.log(printTeacher({ firstName: "Alice", lastName: "Smith" })); // A. Smith
